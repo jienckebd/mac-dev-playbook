@@ -1,9 +1,13 @@
 #!/bin/bash
 
+bin_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 xcode-select --install
 
 git config --global user.name "Bryan Jiencke" && \
 git config --global user.email "bryan.jiencke@gmail.com"
+
+# @todo Copy keys.
 
 mkdir -p "${HOME}/sys/project"
 mkdir -p "${HOME}/sys/platform"
@@ -23,5 +27,5 @@ git remote add upstream https://github.com/geerlingguy/mac-dev-playbook.git
 sudo easy_install pip
 sudo pip install ansible
 
-ansible-galaxy install -r requirements.yml
-ansible-playbook main.yml -i inventory -K
+ansible-galaxy install -r "${bin_path}/../requirements.yml"
+ansible-playbook "${bin_path}/../main.yml" -i inventory -K

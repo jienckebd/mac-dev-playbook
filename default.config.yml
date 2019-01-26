@@ -43,6 +43,7 @@ homebrew_installed_packages:
   - pv
   - wget
   - wrk
+  - fzf
 
 homebrew_taps:
   - homebrew/core
@@ -67,7 +68,6 @@ homebrew_cask_apps:
   - vagrant
   - virtualbox
   - phpstorm
-  -
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
