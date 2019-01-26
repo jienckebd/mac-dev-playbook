@@ -21,6 +21,7 @@ git config --global user.name "Bryan Jiencke" && \
 git config --global user.email "bryan.jiencke@gmail.com"
 
 # Step 4: Set up SSH keys.
+# @todo
 
 # Step 5: Install pip and ansible.
 sudo easy_install pip
