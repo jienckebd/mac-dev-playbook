@@ -12,7 +12,6 @@
       tags: ['always']
 
   roles:
-    - role: viasite-ansible.zsh
     - role: geerlingguy.homebrew
       tags: ['homebrew']
     - role: geerlingguy.dotfiles
@@ -37,6 +36,8 @@
 
     - include_tasks: tasks/extra-packages.yml
       tags: ['extra-packages']
+
+    - include_tasks: tasks/post-task-roles.yml
 
     - name: Run configured post-provision ansible task files.
       include_tasks: "{{ outer_item }}"
