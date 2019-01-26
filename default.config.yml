@@ -65,6 +65,9 @@ homebrew_cask_apps:
   - sublime-text
   - transmit
   - vagrant
+  - virtualbox
+  - phpstorm
+  -
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
@@ -95,3 +98,8 @@ pip_packages: []
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []
+
+zsh_antigen_bundles_extras:
+  - nvm
+  - joel-porquet/zsh-dircolors-solarized
+zsh_autosuggestions_bind_key: "`"

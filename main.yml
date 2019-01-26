@@ -12,6 +12,7 @@
       tags: ['always']
 
   roles:
+    - role: viasite-ansible.zsh
     - role: geerlingguy.homebrew
       tags: ['homebrew']
     - role: geerlingguy.dotfiles
