@@ -35,3 +35,11 @@ ansible-galaxy install -r "${dev_playbook_root}/requirements.yml"
 
 # Step 6: Execute mac-dev-playbook provisioning.
 ansible-playbook "${dev_playbook_root}/main.yml" -i inventory -K
+
+# Step 7: Misc.
+cp "${dev_playbook_root}/files/terminal/.zshrc.local" "${HOME}"
+cp "${dev_playbook_root}/files/terminal/.bashrc" "${HOME}"
+curl -fsSL get.docksal.io | bash
+
+# PHP extensions.
+yes '' | sudo pecl install redis -y
