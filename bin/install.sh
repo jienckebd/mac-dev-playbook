@@ -16,10 +16,10 @@ mkdir -p "${HOME}/sys/lib" &&
 mkdir -p "${HOME}/sys/etc" &&
 mkdir -p "${HOME}/Notes"
 
-sudo chown -R "${me}:${me}" /usr/local/share/man &&
+#sudo chown -R "${me}:${me}" /usr/local/share/man &&
 
 # Step 2: Install Git and xcode.
-xcode-select --install &&
+#xcode-select --install &&
 
 # Step 3: Configure Git.
 git config --global user.name "Bryan Jiencke" &&
@@ -29,13 +29,24 @@ git config --global user.email "bryan.jiencke@gmail.com" &&
 # @todo
 
 # Step 5: Install pip and ansible.
-sudo easy_install pip &&
-sudo pip install ansible &&
+if ! [ -x "$(command -v pip)" ]; then
+  sudo easy_install pip
+fi
+
+if ! [ -x "$(command -v ansible)" ]; then
+  sudo pip install ansible
+fi
+
+if ! [ -x "$(command -v composer)" ]; then
+  curl -sS https://getcomposer.org/installer | php
+  mv composer.phar /usr/local/bin/composer
+  chmod 755 /usr/local/bin/composer
+fi
 
 # Step 5: Clone and set up mac-dev-playbook.
-git clone git@github.com:jienckebd/mac-dev-playbook.git "${dev_playbook_root}" &&
+#git clone git@github.com:jienckebd/mac-dev-playbook.git "${dev_playbook_root}" &&
 cd "${dev_playbook_root}" &&
-git remote add upstream https://github.com/geerlingguy/mac-dev-playbook.git &&
+# git remote add upstream https://github.com/geerlingguy/mac-dev-playbook.git &&
 sudo ansible-galaxy install -r "${dev_playbook_root}/requirements.yml" &&
 
 # Step 6: Execute mac-dev-playbook provisioning.
@@ -48,3 +59,5 @@ curl -fsSL get.docksal.io | bash  &&
 
 # PHP extensions.
 yes '' | sudo pecl install redis -y
+
+bash <(curl -fsSL https://get.docksal.io)

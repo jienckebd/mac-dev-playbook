@@ -56,22 +56,23 @@ homebrew_cask_apps:
   - chromedriver
   # - docker-toolbox
   - dropbox
-  - firefox
+#  - firefox
   # - google-chrome
   - handbrake
   - licecap
-  - limechat
+#  - limechat
   - macvim
   - sequel-pro
   - skitch
-  - slack
+#  - slack
   - sublime-text
   - transmit
   - vagrant
-  - virtualbox
+#  - virtualbox
   - phpstorm
   - alfred
   - google-backup-and-sync
+  - iterm2
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
@@ -86,13 +87,13 @@ osx_script: "~/.osx --no-restart"
 # Install packages from other package managers.
 # Note: You are responsible for making sure the required package managers are
 # installed, eg. through homebrew.
-composer_packages:
-  - name: drush
-    state: present
-    version: "^9.4"
-  - name: robo
-    state: present
-    version: "~1"
+composer_packages: { }
+#  - name: drush
+#    state: present
+#    version: "^9.4"
+#  - name: robo
+#    state: present
+#™    version: "~1"
 gem_packages: []
   # - name: bundler
   #   state: present # present/absent/latest, default: present
