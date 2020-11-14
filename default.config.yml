@@ -1,7 +1,7 @@
 ---
 downloads: ~/.ansible-downloads/
 
-configure_dotfiles: yes
+configure_dotfiles: no
 configure_sudoers: yes
 configure_terminal: yes
 configure_osx: yes
@@ -53,25 +53,27 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - chromedriver
+  #- chromedriver
   # - docker-toolbox
-  - dropbox
-#  - firefox
-  # - google-chrome
-  - handbrake
-  - licecap
+#  - dropbox
+  - firefox
+  #- google-chrome
+#  - handbrake
+#  - licecap
 #  - limechat
+#  - webex-meetings
+  - zoomus
   - macvim
-  - sequel-pro
-  - skitch
+#  - sequel-pro
+#  - skitch
 #  - slack
-  - sublime-text
+#  - sublime-text
   - transmit
-  - vagrant
-#  - virtualbox
+#  - vagrant
+  - virtualbox
   - phpstorm
-  - alfred
-  - google-backup-and-sync
+#  - alfred
+  #- google-backup-and-sync
   - iterm2
 
 # See `geerlingguy.mas` role documentation for usage instructions.

@@ -34,7 +34,7 @@ if ! [ -x "$(command -v pip)" ]; then
 fi
 
 if ! [ -x "$(command -v ansible)" ]; then
-  sudo pip install ansible
+  sudo pip install ansible --ignore-installed
 fi
 
 if ! [ -x "$(command -v composer)" ]; then
@@ -58,6 +58,6 @@ cp "${dev_playbook_root}/files/terminal/.bashrc" "${HOME}" &&
 curl -fsSL get.docksal.io | bash  &&
 
 # PHP extensions.
-yes '' | sudo pecl install redis -y
+# yes '' | sudo pecl install redis -y
 
 bash <(curl -fsSL https://get.docksal.io)
