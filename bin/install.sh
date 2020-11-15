@@ -33,24 +33,33 @@ if ! [ -x "$(command -v pip)" ]; then
   sudo easy_install pip
 fi
 
-if ! [ -x "$(command -v ansible)" ]; then
-  sudo pip install ansible --ignore-installed
+if ! [ -x "$(command -v brew)" ]; then
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew install caskroom/cask/brew-cask
 fi
 
-if ! [ -x "$(command -v composer)" ]; then
-  curl -sS https://getcomposer.org/installer | php
-  mv composer.phar /usr/local/bin/composer
-  chmod 755 /usr/local/bin/composer
+brew install bash-completion wget nmap
+
+brew cask install google-chrome firefox sublime-text zoomus webex-meetings phpstorm iterm2 macvim google-backup-and-sync
+
+if ! [ -x "$(command -v ansible)" ]; then
+  #sudo pip install ansible --ignore-installed
 fi
+
+#if ! [ -x "$(command -v composer)" ]; then
+#  curl -sS https://getcomposer.org/installer | php
+#  mv composer.phar /usr/local/bin/composer
+#  chmod 755 /usr/local/bin/composer
+#fi
 
 # Step 5: Clone and set up mac-dev-playbook.
 #git clone git@github.com:jienckebd/mac-dev-playbook.git "${dev_playbook_root}" &&
-cd "${dev_playbook_root}" &&
-# git remote add upstream https://github.com/geerlingguy/mac-dev-playbook.git &&
-sudo ansible-galaxy install -r "${dev_playbook_root}/requirements.yml" &&
+#cd "${dev_playbook_root}" &&
+## git remote add upstream https://github.com/geerlingguy/mac-dev-playbook.git &&
+#sudo ansible-galaxy install -r "${dev_playbook_root}/requirements.yml" &&
 
 # Step 6: Execute mac-dev-playbook provisioning.
-ansible-playbook "${dev_playbook_root}/main.yml" -i inventory -K &&
+#ansible-playbook "${dev_playbook_root}/main.yml" -i inventory -K &&
 
 # Step 7: Misc.
 cp "${dev_playbook_root}/files/terminal/.zshrc.local" "${HOME}" &&
